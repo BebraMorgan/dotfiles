@@ -1,0 +1,150 @@
+{
+  "height": 35,
+  "width": 1920,
+  "position": "top",
+  "modules-left": [
+    "custom/menu",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "memory",
+    "cpu",
+    "temperature"
+  ],
+  "modules-right": [
+    "tray",
+    "hyprland/language",
+    "pulseaudio",
+    "battery",
+    "clock",
+  ],
+  "custom/menu": {
+    "format": "{icon}",
+    "format-icons": "󰣇",
+    "on-click": "rofi -show drun -theme ~/.config/rofi/style.rasi",
+    "tooltip": false,
+  },
+  "hyprland/window": {
+    "format": "{initialTitle}",
+    "separate-outputs": false,
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "active-only": false,
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": "",
+    },
+    "tooltip": false,
+    "persistent-workspaces": {
+      "*": 2,
+    },
+    "separate-outputs": true,
+  },
+  "battery": {
+    "on-click": "xfce4-power-manager-settings",
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "<span color='#a7c080'>{icon}</span> <span color='#d3c6aa'>{capacity}%</span>",
+    "format-charging": "<span color='#a7c080'>󰂄</span> <span color='#d3c6aa'>{capacity}%</span>",
+    "format-plugged": "<span color='#a7c080'>󱈑</span> <span color='#d3c6aa'>{capacity}%</span>",
+    "format-full": "<span color='#a7c080'>󰁹</span> <span color='#d3c6aa'>{capacity}%</span>",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10,
+  },
+  "hyprland/language": {
+    "format": "<span color='#a7c080'></span> {}",
+    "format-en": "EN",
+    "format-ru": "RU",
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "<span color='#a7c080'>{icon}</span> <span color='#d3c6aa'>{volume}% </span>",
+    "format-icons": {
+      "default": [
+        "\uf026",
+        "\uf027",
+        "\uf028"
+      ],
+    },
+    "format-muted": "\ueee8 0% ",
+    "on-click": "pavucontrol",
+    "tooltip": false,
+  },
+  "clock": {
+    "format": "<span color='#a7c080'></span> {:%H:%M}",
+    "tooltip-format": "<big><span color='#d3c6aa'>{:%Y %B}</span></big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#d3c6aa'><b>{}</b></span>",
+        "days": "<span color='#d3c6aa'><b>{}</b></span>",
+        "weeks": "<span color='#a7c080'><b>W{}</b></span>",
+        "weekdays": "<span color='#a7c080'><b>{}</b></span>",
+        "today": "<span color='#e67e80'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+  },
+  "custom/power": {
+    "format": "{icon}",
+    "format-icons": "󰤆",
+    "on-click": "~/.config/rofi/applets/bin/powermenu.sh",
+    "tooltip": false,
+  },
+  "memory": {
+    "interval": 30,
+    "format": "<span color='#a7c080'> </span>{used:0.1f}G ",
+    "tooltip": true,
+    "tooltip-format": "Free: {avail:0.1f}G\nUsed: {percentage}%\nSwap: {swapPercentage}%",
+  },
+  "cpu": {
+    // "format": "\uf4bc {usage}%",
+    "format-critical": "<span color='#c20821'><b>\uf4bc {usage}%</b></span>",
+    "format-high": "<span color='#e67e80'>\uf4bc {usage}%</span>",
+    "format-medium": "<span color='#a7c080'>\uf4bc</span> {usage}%",
+    "format-low": "<span color='#a7c080'>\uf4bc</span> {usage}%",
+    "tooltip": false,
+    "interval": 2,
+    "states": {
+      "critical": 80,
+      "high": 50,
+      "medium": 5,
+      "low": 0,
+    },
+  },
+  "temperature": {
+    "interval": 10,
+    "critical-threshold": 100,
+    "format-critical": "<span color='#e67e80'> {temperatureC}</span>",
+    "format": "<span color='#a7c080'></span> {temperatureC}°C",
+  },
+}

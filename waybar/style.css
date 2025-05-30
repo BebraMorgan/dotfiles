@@ -1,0 +1,120 @@
+/* Глобальные стили */
+* {
+  font-family: JetBrainsMono, "Symbols Nerd Font";
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 0;
+}
+
+/* Определение цветовых переменных */
+@define-color bg transparent;
+@define-color bg2 rgb(45, 53, 59); /* второстепенный фон (серый) */
+@define-color fg #d3c6aa; /* основной цвет текста */
+@define-color red #e67e80; /* красный */
+@define-color vl #a7c080;
+
+/* Основные стили окна Waybar */
+window#waybar {
+  background-color: @bg2;
+}
+
+/* Стили для модулей */
+.modules-left,
+.modules-center,
+.modules-right {
+  background-color: @bg;
+}
+
+/* Стили для отдельных элементов */
+#custom-menu {
+  padding: 2px 10px;
+  margin: 5px 5px 5px 10px;
+  color: @vl;
+  font-size: 20px;
+}
+
+#workspaces {
+  padding: 2px 10px;
+  margin: 5px;
+  color: @fg;
+  background-color: @bg;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: @fg;
+  opacity: 0.4;
+  transition: all 0.3s linear;
+}
+
+#workspaces button.active {
+  opacity: 1;
+  color: @vl;
+}
+
+#workspaces button:hover,
+#workspaces button.focused,
+#workspaces button.urgent {
+  color: @vl;
+}
+
+#window {
+  padding: 2px;
+  margin: 5px 0;
+  color: @vl;
+}
+
+#tray {
+  padding: 2px;
+  margin: 5px 15px 5px 0;
+}
+
+#language,
+#pulseaudio,
+#battery {
+  padding: 2px;
+  margin: 5px;
+  color: @fg;
+}
+
+#language {
+  margin: 0px 10px;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+#clock {
+  padding: 2px;
+  margin: 5px 15px 5px 5px;
+  color: @fg;
+}
+
+#custom-power {
+  padding: 2px 10px;
+  margin: 5px 10px 5px 0;
+  color: @vl;
+}
+
+#custom-power:hover {
+  color: @red;
+}
+
+#cpu,
+#memory,
+#temperature {
+  padding: 2px;
+  margin: 5px;
+  color: @fg;
+}
+
+/* Стили для подсказок */
+tooltip {
+  background: @bg2;
+  margin: 20px;
+  padding: 15px;
+  border: 20px solid rgba(100, 114, 125, 0);
+  border-radius: 10px;
+}
